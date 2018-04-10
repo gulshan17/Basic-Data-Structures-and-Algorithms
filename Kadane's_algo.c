@@ -1,5 +1,6 @@
 /*This program uses Kadane's algo to compute the maximum sum in the subarray*/
 #include<stdio.h>
+#include<stdlib.h>
 
 int main()
 {
@@ -17,19 +18,13 @@ int main()
 	}
 	
 	i = 1;
-	global_max = *(a);
+	current_max = global_max = *(a);
 	while(i ^ n)
 	{
-		current_max = global_max + (*(a + i));
-		if(current_max > (*(a + i)))
-		{
-			global_max = current_max;
-		}
-		
-		else
-		{
-			global_max = (*(a + i));
-		}
+		current_max = (current_max + (*(a + i))) > a[i] ? (current_max + (*(a + i))) : a[i];
+
+		((current_max > global_max) && (global_max = current_max));
+		++i;
 	}
 	
 	printf("The maximum sum of subarray = %d\n", global_max);
