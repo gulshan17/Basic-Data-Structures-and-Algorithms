@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void heapify(int arr[], int N) {
+void build_heap(int arr[], int N) {
     int swap_end_node_index = ((N - 2) >> 1);
     int largest_index = 0, left_index, right_index;
     
