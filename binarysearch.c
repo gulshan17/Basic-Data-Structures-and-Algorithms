@@ -8,7 +8,7 @@ int main()
 	int n;
 	printf("Enter the number of elements:");
 	scanf("%d",&n);
-	int a[n],lower=0,upper=n-1,mid=(lower+upper)/2,i;
+	int a[n],lower=0,upper=n-1,i;
 	printf("Please enter the elements in the array in a sorted way\n");
 	for(i=0;i<n;i++)
 	{
@@ -28,8 +28,9 @@ int main()
 	return 0;
 }
 
-void binarysearch(int *a,int lower,int mid,int upper,int item)
+void binarysearch(int *a,int lower,int upper,int item)
 {
+	mid = (lower  + upper) >> 1;
 	while(lower<=upper)
 	{
 		if(a[mid]==item)
@@ -40,12 +41,12 @@ void binarysearch(int *a,int lower,int mid,int upper,int item)
 		else if(item<a[mid])
 		{
 			upper=mid-1;
-			binarysearch(a,lower,mid,upper,item);
+			binarysearch(a,lower,upper,item);
 		}
 		else
 		{
 			lower=mid+1;
-			binarysearch(a,lower,mid,upper,item);
+			binarysearch(a,lower,upper,item);
 		}
 	}
 }
