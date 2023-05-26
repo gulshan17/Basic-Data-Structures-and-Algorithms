@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void binarysearch(int *a,int lower,int mid,int upper,int item);
+void binarysearch(int *a,int lower,int upper,int item);
 int flag=0;
 
 int main()
@@ -16,10 +16,10 @@ int main()
 	}
 	printf("Enter the item you want to search:");
 	scanf("%d",&i);
-	binarysearch(a,lower,mid,upper,i);
+	binarysearch(a,lower,upper,i);
 	if(flag)
 	{
-		printf("Search successfuly\n");
+		printf("Search successful\n");
 	}
 	else
 	{
@@ -30,9 +30,9 @@ int main()
 
 void binarysearch(int *a,int lower,int upper,int item)
 {
-	mid = (lower  + upper) >> 1;
-	while(lower<=upper)
-	{
+	if(lower <= upper) {
+		int mid = (lower  + upper) >> 1;
+		printf("%d\n", mid);
 		if(a[mid]==item)
 		{
 			flag=1;
